@@ -1,0 +1,17 @@
+/* Default layout stays static */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Dynamic Look A: Activated if mybirthday is True */
+.birthday-theme {
+    background: radial-gradient(circle, #ff007f, #7928ca);
+}
+
+/* Dynamic Look B: Activated if mybirthday is False */
+.normal-theme {
+    background: radial-gradient(circle, #1e1b4b, #0f172a);
+}

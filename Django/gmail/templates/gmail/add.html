@@ -1,0 +1,10 @@
+{% extends "tasks/layout.html" %}
+{% block body %}
+    <h1>Compose Message</h1>
+    <form action="{% url 'gmail:add' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Send Message">
+    </form>
+    <a href="{% url 'gmail:index' %}" class="nav-link">Back to Inbox</a>
+{% endblock %}

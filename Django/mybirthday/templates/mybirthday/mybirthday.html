@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Birthday Tracker</title>
+    <link href="{% static 'mybirthday/mybirthday.css' %}" rel="stylesheet"> 
+</head>
+<body>
+
+    <div class="card">
+        <h1>Hello {{ name }}!</h1>
+        
+        {% if mybirthday %}
+            <div class="status-badge status-success">
+                <h2>Happy New Year, {{ name }}! 🎂</h2>
+                <p>Time to celebrate your special day!</p>
+            </div>
+        {% else %}
+            <div class="status-badge status-fail">
+                <h2>Not your new year yet, {{ name }}! ⏳</h2>
+                <p>Hang tight! The countdown continues.</p>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

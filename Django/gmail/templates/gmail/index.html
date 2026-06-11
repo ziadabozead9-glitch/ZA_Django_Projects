@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Entry</title>
+    <link rel="stylesheet" href="{% static 'gmail/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Valid or Invalid Account</h1>
+        {% if message %}
+            <p class="success-msg">{{ message }}</p>
+        {% endif %}
+
+        <form action="{% url 'gmail:index' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit Entry">
+        </form>
+    </div>
+</body>
+</html>

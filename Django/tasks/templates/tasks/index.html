@@ -1,0 +1,20 @@
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+    <h1>Tasks</h1>
+    <ul>
+        {% for task in tasks %}
+            <li class="task-item">
+                <span class="task-text">{{ task }}</span>
+                <form action="{% url 'tasks:delete' %}" method="post" class="delete-form">
+                    {% csrf_token %}
+                    <input type="hidden" name="task_index" value="{{ forloop.counter0 }}">
+                    <button type="submit" class="delete-btn">Delete</button>
+                </form>
+            </li>
+        {% empty %}
+            <li class="empty-notice">No tasks.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'tasks:add' %}" class="nav-link">Add New Task</a>
+{% endblock %}

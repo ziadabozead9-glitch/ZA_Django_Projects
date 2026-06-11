@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Birthday</title>
+    <link href="{% static 'app1/app1.css' %}" rel="stylesheet"> 
+</head>
+<body class="{% if mybirthday %}birthday-theme{% else %}normal-theme{% endif %}">
+    <div class="wrapper">
+        <h1>Hello {{ name }}!</h1>
+        {% if mybirthday %}
+            <h2>Happy birthday!</h2>
+        {% else %}
+            <h2>Today is a normal day.</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

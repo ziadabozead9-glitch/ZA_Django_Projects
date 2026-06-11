@@ -1,0 +1,143 @@
+/* Custom Design Variables */
+:root {
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Base Body Styling */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Centered Container Wrapper */
+.container {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 440px;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    box-sizing: border-box;
+}
+
+/* Headings */
+h1 {
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--text-main);
+    font-weight: 700;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 12px;
+}
+
+/* Task List Styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+li {
+    background: #f8fafc;
+    padding: 14px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #475569;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Forms (Handling Django auto-generated fields cleanly) */
+form {
+    margin-bottom: 25px;
+}
+
+form p {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #475569;
+}
+
+/* Automatically styles your Django CharField inputs */
+input[type="text"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Submit Action Button */
+input[type="submit"] {
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Navigation Links styled as sleek utility buttons */
+a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 11px;
+    border-radius: 8px;
+    background-color: #f1f5f9;
+    transition: background-color 0.2s, color 0.2s;
+    margin-top: 15px;
+}
+
+a:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
