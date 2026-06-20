@@ -1,0 +1,10 @@
+{% extends "flight/layout.html" %}
+
+{% block body %}
+    <h1>Flights</h1>
+    <ul>
+        {% for f in flight %}
+            <li>Flight {{f.id}}: is going from {{f.origin}} to {{f.destination}} in {{f.duration}} minuits.</li>
+        {% endfor %}
+    </ul>    
+{% endblock %}
