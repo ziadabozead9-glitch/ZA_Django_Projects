@@ -1,7 +1,11 @@
 from django.urls import path
-from . import views  
+from . import views
+
+# This tells Django that the namespace is 'flight'
+app_name = "flight"
 
 urlpatterns = [
-    path("index", views.index, name="index"), # Changed from views.flight to views.index
-    path("<int:flight_id>", views.flight_view, name="flight"), # Changed from views.flight to views.flight_view
+    path("", views.index, name="index"), # This path name='index' matches 'flight:index'
+    path("<int:flight_id>", views.flight_view, name="flight_view"),
+    path("<int:flight_id>/book", views.book, name="book")
 ]

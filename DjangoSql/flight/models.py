@@ -13,6 +13,13 @@ class flight (models.Model):
     destination = models.ForeignKey(airport, on_delete = models.CASCADE, related_name="arrivals")
     duration = models.IntegerField()
 
-
     def __str__(self):
         return f"{self.id} ({self.origin}) ({self.destination})({self.duration})"
+    
+class passenger (models.Model):
+    frist = models.CharField(max_length=50)
+    last = models.CharField(max_length=50)
+    flights = models.ManyToManyField(flight, blank=True, related_name="passengers")
+
+    def __str__(self):
+        return f"{self.frist} {self.last}"

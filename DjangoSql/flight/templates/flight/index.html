@@ -3,8 +3,12 @@
 {% block body %}
     <h1>Flights</h1>
     <ul>
-        {% for f in flight %}
-            <li>Flight {{f.id}}: is going from {{f.origin}} to {{f.destination}} in {{f.duration}} minuits.</li>
+        {% for f in flights %}
+            <li>
+                <a href="{% url 'flight:flight_view' f.id %}">       
+                    Flight {{f.id}}: is going from {{f.origin}} to {{f.destination}} in {{f.duration}} minuits.
+                </a>
+            </li>
         {% endfor %}
     </ul>    
 {% endblock %}
