@@ -1,30 +1,227 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --panel-bg: rgba(30, 41, 59, 0.7);
+    --panel-border: rgba(255, 255, 255, 0.08);
+    
+    --accent-glow: #38bdf8;
+    --accent-solid: #0ea5e9;
+    --accent-hover: #0284c7;
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --success: #10b981;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    padding: 40px;
-    color: #333;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    min-height: 100vh;
+    margin: 0;
+    padding: 3rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container, main, block {
+    width: 100%;
+    max-width: 850px;
+    background: var(--panel-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--panel-border);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
 }
 
 h1 {
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, #ffffff, var(--accent-glow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
+
 h2 {
-    margin-bottom: 20px;
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
 }
 
-ul {
-    list-style: none;
+ul:first-of-type {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
     padding: 0;
+    margin-bottom: 2.5rem;
 }
 
-li {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 14px 18px;
-    margin-bottom: 10px;
+ul:first-of-type li {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--panel-border);
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    transition: var(--transition);
 }
 
-li:hover {
-    background: #e8f0fe;
+ul:first-of-type li:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+    background: rgba(56, 189, 248, 0.02);
+    transform: translateY(-2px);
+}
+
+ul:first-of-type li::before {
+    content: "DATA POINT";
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent-glow);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+}
+
+ul:first-of-type li:nth-child(1)::before { content: "FLIGHT ROUTE"; }
+ul:first-of-type li:nth-child(2)::before { content: "DESTINATION HUB"; }
+ul:first-of-type li:nth-child(3)::before { content: "AIRTIME DURATION"; }
+
+ul:nth-of-type(2) {
+    padding: 0;
+    background: rgba(15, 23, 42, 0.4);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--panel-border);
+    overflow: hidden;
+}
+
+ul:nth-of-type(2) li {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--panel-border);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+}
+
+ul:nth-of-type(2) li::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--success);
+    box-shadow: 0 0 8px var(--success);
+}
+
+ul:nth-of-type(2) li:last-child {
+    border-bottom: none;
+}
+
+ul li:only-child {
+    color: var(--text-muted) !important;
+    font-style: italic;
+    justify-content: center;
+    padding: 2rem !important;
+}
+ul li:only-child::before { display: none !important; }
+
+form {
+    display: flex;
+    gap: 1rem;
+    background: rgba(15, 23, 42, 0.2);
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--panel-border);
+    margin-top: 1rem;
+}
+
+select {
+    flex: 1;
+    background: #0f172a;
+    color: var(--text-primary);
+    border: 1px solid var(--panel-border);
+    padding: 0.85rem 1.25rem;
+    font-size: 1rem;
+    border-radius: var(--radius-md);
+    outline: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+select:focus {
+    border-color: var(--accent-solid);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
+input[type="submit"] {
+    background: var(--accent-solid);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.85rem 1.75rem;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+input[type="submit"]:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+    transform: translateY(-1px);
+}
+
+input[type="submit"]:active {
+    transform: translateY(1px);
+}
+
+br { display: none; }
+
+a {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 2.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+a::before {
+    content: "←";
+    margin-right: 0.5rem;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--accent-glow);
+}
+
+a:hover::before {
+    transform: translateX(-4px);
 }
